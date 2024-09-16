@@ -4,13 +4,15 @@ const router = express.Router();
 
 // Email configuration
 const transporter = nodemailer.createTransport({
-  service: 'smtp.hassantour.co.tz', 
-  port: 465, // Replace with the correct port
-    secure: true,// You can use other email services
+  host: 'smtp.hassantour.co.tz', // Use 'host' instead of 'service'
+  port: 587, // Replace with the correct port if necessary
+  secure: false, // Set to true if using SSL (port 465), false for STARTTLS (port 587)
   auth: {
-    
     user: 'booking@hassantour.co.tz', // Replace with your email
-    pass: 'u:]VEU_RmojV'   // Replace with your email password or an App password
+    pass: 'DA0zjT6:T{e&'   // Replace with your email password or an App password
+  },
+  tls: {
+    rejectUnauthorized: false // This is useful for development; consider removing for production
   }
 });
 
@@ -43,7 +45,7 @@ router.post('/', (req, res) => {
       res.status(200).send('Booking details sent successfully');
     })
     .catch((error) => {
-      console.error('Error sending email', error);
+      console.error('Error sending email:', error);
       res.status(500).send('Error sending email');
     });
 });
