@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
   auth: {
     
     user: 'booking@hassantour.co.tz', // Replace with your email
-    pass: 'l=P,(1+)s{9@'   // Replace with your email password or an App password
+    pass: 'u:]VEU_RmojV'   // Replace with your email password or an App password
   }
 });
 
